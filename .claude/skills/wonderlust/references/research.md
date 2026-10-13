@@ -32,10 +32,14 @@ Fontes externas que costumam valer a busca: anúncio de rodada de investimento (
 
 Alguns ambientes bloqueiam o acesso direto às páginas, mas deixam o WebSearch funcionar. Nesse caso:
 
-1. **Fonte própria**: faça buscas com `allowed_domains: ["<domínio>"]`, uma ou mais por categoria (ex.: "<Produto> pricing plans", "<Produto> customers case study", "<Produto> security deployment", "<Produto> careers sales", "<Produto> features docs"). Os resultados trazem URLs da própria empresa e resumos do conteúdo.
-2. **Fonte externa**: as mesmas buscas sem o filtro, para investimentos, imprensa e comparativos. No ledger, marque como `third-party`.
-3. **Literalidade**: resumos de busca não garantem texto literal. No ledger, registre esses fatos com o tipo `search-summary` e só use aspas quando o próprio resultado apresentar a frase entre aspas. Em `Representative Evidence`, use apenas essas citações; se não houver o bastante, registre uma ressalva `evidence` ("Citações obtidas via resumos de busca").
-4. **Teto de confiança**: 0.88 para documentos sustentados só por resumos de busca. Adicione uma ressalva global no `manifest.json` (`caveats`): *"Evidência coletada por resumos de busca (WebSearch), sem leitura direta das páginas; citações podem não ser literais."*
+1. **Fonte própria**: faça buscas com `allowed_domains: ["<domínio>"]`, pelo menos duas por categoria ativa (ex.: "<Produto> pricing plans", "<Produto> customers case study", "<Produto> security deployment", "<Produto> careers sales", "<Produto> features docs"). Os resultados trazem URLs da própria empresa e resumos do conteúdo.
+2. **Fonte externa**: pelo menos 3 buscas sem o filtro, para investimentos, imprensa, vagas e comparativos. No ledger, marque como `third-party`.
+   Meta do modo busca: **20 a 40 buscas** no total (equivale às 15 a 40 páginas do modo normal). Pare quando as buscas novas só repetirem fatos.
+3. **Literalidade**: resumos de busca não garantem texto literal. No ledger, registre esses fatos com o tipo `search-summary`. Em **qualquer** documento, use aspas só quando o próprio resultado mostrar a frase entre aspas; fora disso, parafraseie sem aspas. A ressalva global (item 4) cobre a biblioteca. Uma ressalva por documento só é necessária nos documentos de messaging-and-brand cuja `Representative Evidence` ficar com poucas citações literais (`evidence`, título "Citações via resumos de busca").
+4. **Teto de confiança**: 0.88 para documentos sustentados só por resumos de busca. Então, `sufficient` fica na faixa 0.86–0.88. Adicione esta ressalva global no `manifest.json`:
+   ```json
+   "caveats": [{"kind": "evidence", "title": "Evidência via resumos de busca", "text": "Evidência coletada por resumos de busca (WebSearch), sem leitura direta das páginas; citações podem não ser literais."}]
+   ```
 5. **Divergências entre resumos** (preços diferentes em páginas diferentes, por exemplo) são conflitos: registre os dois valores com as duas URLs.
 
 ## O ledger de fatos
@@ -84,5 +88,6 @@ Fontes, em ordem de qualidade: documentação e changelog > páginas dedicadas n
 - **Inclua** capacidades que a empresa nomeia e apresenta como parte do produto, e as opções de deployment ou hospedagem (multi-tenant, single-tenant, BYOC, on-premise) quando a empresa as oferece como escolhas.
 - **Não inclua** serviços, funcionalidades do roadmap que ainda não existem, nem genéricos que não foram nomeados ("dashboard", "API") sem página ou documentação próprias.
 - **Junte** itens triviais e relacionados quando cada um, sozinho, não daria uma especificação (ex.: "SSO" e "SCIM" → "Identity & Access").
-- Use o **nome que a empresa usa** como título. O `init` gera o id em kebab-case.
+- **Quando o usuário pede N funcionalidades** ("as 3 principais"), o pedido dele vale mais que a faixa de 6 a 15. Escolha as N com mais pontos nestes critérios, nesta ordem: (1) aparecem na home ou no menu de produto; (2) diferenciam os planos na tabela de preço; (3) têm documentação própria. Cite a escolha e o critério no relatório final e na nota da categoria (`categories[].note`).
+- Use o **nome que a empresa usa** como título. Se as páginas usarem variantes ("Round Robin" e "Round Robin Scheduling"), use a do menu de produto ou da documentação. O `init` gera o id em kebab-case.
 - Anote no ledger a profundidade da evidência de cada funcionalidade (`dedicated page`, `docs`, `mention only`). Ela define o teto de confiança: só menção → no máximo 0.70; página dedicada sem docs → até 0.80; documentação com comportamento → até 0.95.

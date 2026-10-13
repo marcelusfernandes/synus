@@ -3,7 +3,7 @@
 [Wonderful](../README.md) / Sales & GTM
 
 > [!NOTE]
-> **Ainda não gerado.** A Vicaura ainda não produziu os arquivos desta categoria.
+> **Ainda não gerado.** Os arquivos desta categoria ainda não foram produzidos.
 
 ## Documentos esperados
 

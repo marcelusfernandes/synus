@@ -72,6 +72,10 @@ O `init` cria e o `build` reescreve. Campos que **você** pode editar (o `build`
 
 Para gerar uma categoria pendente depois: mova o objeto dela de `pending` para `categories` (na posição desejada, sem a lista `docs` antiga) e rode `init <url> --root <raiz> --slug <slug>`. Os stubs que faltam são criados e nada existente é sobrescrito.
 
+## Contagens
+
+Nos READMEs, "N ressalvas" conta as ressalvas que não são do tipo `evidence`, como na referência. A tabela do README principal conta documentos por status.
+
 ## Ordem dos documentos
 
 - Categorias fixas: a ordem da taxonomia (alfabética por id).
@@ -94,5 +98,5 @@ Para gerar uma categoria pendente depois: mova o objeto dela de `pending` para `
 | `AVISO … título de seção 'x' deveria ser 'X'` | Ajuste a caixa do título. |
 | `AVISO … palavras (faixa esperada …)` | Aprofunde com evidência ou corte repetição. |
 | `AVISO … limited sem nenhuma marcação (Extrapolated)` | Marque as afirmações inferidas, ou reavalie o status. |
-| `AVISO … conflito … sem ressalva recíproca` | Adicione a ressalva `conflict` no outro documento. |
+| `AVISO … conflito … sem ressalva conflict no outro documento` | Adicione uma ressalva `conflict` no documento apontado (ver o padrão "central" para 3+ documentos). |
 | `AVISO … subseções ausentes` | Crie as subseções `###` pedidas pelo arquétipo. |

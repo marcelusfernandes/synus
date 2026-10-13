@@ -1,6 +1,6 @@
 # Wonderful
 
-> Arquivos de referência da Vicaura sobre a Wonderful ([wonderful.ai](https://wonderful.ai/)), organizados por categoria.
+> Arquivos de referência sobre Wonderful ([wonderful.ai](https://wonderful.ai/)), gerados por Vicaura e organizados por categoria.
 
 Um sistema operacional de IA enterprise unificado, com capacidades de plataforma e times de deployment para transformar operações de negócio.
 
@@ -9,7 +9,7 @@ Um sistema operacional de IA enterprise unificado, com capacidades de plataforma
 | [wonderful.ai](https://wonderful.ai/) | 2026-10-03 UTC | 43 | 13 |
 
 > [!IMPORTANT]
-> **Produto de referência.** Estes arquivos descrevem a Wonderful, não o nosso produto. Use como exemplo, benchmark ou evidência de mercado.
+> **Produto de referência.** Estes arquivos descrevem Wonderful, não o nosso produto. Use como exemplo, benchmark ou evidência de mercado.
 
 ## Categorias
 
@@ -27,9 +27,9 @@ Um sistema operacional de IA enterprise unificado, com capacidades de plataforma
 
 ## Como ler a confiabilidade
 
-- **`sufficient`**: a Vicaura encontrou evidência suficiente para sustentar o arquivo.
-- **`limited`**: menos evidência. Afirmações não marcadas podem ser inferidas, não observadas.
-- **Marcações**: pontos às vezes aparecem como *Extrapolated* ou *structural inference*, mas sem consistência: um ponto sem marca não está necessariamente verificado.
+- **`sufficient`**: há evidência suficiente para sustentar o arquivo.
+- **`limited`**: menos evidência. Afirmações marcadas com *(Extrapolated)* são inferidas, não observadas.
+- **Marcações**: em bibliotecas geradas pela skill wonderlust, toda afirmação inferida leva *(Extrapolated)*. Em arquivos legados (Vicaura) a marcação é inconsistente: um ponto sem marca não está necessariamente verificado.
 
 Cada documento traz `status` e `confidence` (0 a 1) no frontmatter.
 
@@ -40,7 +40,6 @@ Cada uma também aparece no topo do documento correspondente.
 - **Evidência · Funcionalidades de plataforma com evidência fraca.** As 9 funcionalidades de plataforma (Orchestrator até CLI) têm evidência fraca (limited, 0.60 a 0.80). Leem mais como templates genéricos de spec do que como comportamento documentado da Wonderful. Trate a maior parte como inferência.
 - **Conflito · Inconsistência.** ([Buyer Persona](customers/buyer-persona.md)) Usa “OTC”; o ICP chama o mesmo cliente de “OTE”. Ver também: [ICP](customers/icp.md).
 - **Estranheza · Dado estranho.** ([ICP](customers/icp.md)) Menciona “a $550M Series C in late 2026”, mantido como a Vicaura retornou.
-- **Conflito · Inconsistência.** ([ICP](customers/icp.md)) Cita “OTE” como cliente; Buyer Persona usa “OTC” para o mesmo cliente. Ver também: [Buyer Persona](customers/buyer-persona.md).
 - **Truncado · Arquivo truncado.** ([Jobs to Be Done](problems-and-demand/jobs-to-be-done.md)) Para no meio de uma frase em Causal Structure, com 3 das 6 seções habituais. A Vicaura gerou assim e ainda o reporta como completo.
 - **Conflito · Dado conflitante.** ([Differentiation](market-and-positioning/differentiation.md)) Banco Caja Social aparece como “zero to production in 19 days” em Differentiation, mas como “collections across 2.5 million clients in 19 days” em Market Worldview. Ver também: [Market Worldview](market-and-positioning/market-worldview.md).
 - **Truncado · Arquivo truncado.** ([Positioning](market-and-positioning/positioning.md)) Para no meio de uma frase na última seção, Strategic Implications. A Vicaura gerou assim e o reporta como completo.
@@ -76,12 +75,12 @@ wonderful/
 
 Cada documento segue o mesmo formato:
 
-1. **Frontmatter YAML**: `id`, `title`, `category`, `status`, `confidence`, `generated`, `source`, `generator`, `language` e `caveats` (lista de `kind`, `title`, `text` e, quando houver, `link` para o `id` de outro documento).
-2. **Cabeçalho**: título, navegação e as ressalvas como alertas (`CAUTION` para conflito/truncado, `WARNING` para evidência fraca, `NOTE` para inferência/estranheza).
-3. **Conteúdo original** entre os comentários `<!-- início do conteúdo original ... -->` e `<!-- fim do conteúdo original -->`, mantido em inglês e sem edição, inclusive nos arquivos truncados.
+1. **Frontmatter YAML**: `id`, `title`, `category`, `status`, `confidence`, `generated`, `source`, `generator`, `language`, `sources` (opcional) e `caveats` (lista de `kind`, `title`, `text` e, quando houver, `link` para o `id` de outro documento).
+2. **Cabeçalho**: título, navegação e as ressalvas como alertas (`CAUTION` para conflito/truncado, `WARNING` para evidência fraca, `NOTE` para inferência/estranheza). Gerado pelo `build`.
+3. **Conteúdo** entre os comentários `<!-- início do conteúdo original ... -->` e `<!-- fim do conteúdo original -->`.
 
 Tipos de ressalva (`kind`): `evidence` (evidência fraca), `inferred` (inferido), `oddity` (estranheza), `conflict` (conflito entre arquivos), `truncated` (arquivo truncado).
 
 ---
 
-Arquivos gerados pela Vicaura em 2026-10-03 (UTC). Conteúdo dos documentos mantido no original em inglês. Migrado do artifact [Wonderful Reference](https://claude.ai/artifact/QUz56NJ19SM67REajzvYEC).
+Arquivos gerados por Vicaura em 2026-10-03 (UTC). Conteúdo dos documentos em inglês. Migrado do artifact [Wonderful Reference](https://claude.ai/artifact/QUz56NJ19SM67REajzvYEC).

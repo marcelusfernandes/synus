@@ -4,7 +4,15 @@
   "generator": "Vicaura",
   "generated": "2026-10-03",
   "language": "en",
+  "lede": "Um sistema operacional de IA enterprise unificado, com capacidades de plataforma e times de deployment para transformar operações de negócio.",
   "origin_artifact": "https://claude.ai/artifact/QUz56NJ19SM67REajzvYEC",
+  "caveats": [
+    {
+      "kind": "evidence",
+      "title": "Funcionalidades de plataforma com evidência fraca",
+      "text": "As 9 funcionalidades de plataforma (Orchestrator até CLI) têm evidência fraca (limited, 0.60 a 0.80). Leem mais como templates genéricos de spec do que como comportamento documentado da Wonderful. Trate a maior parte como inferência."
+    }
+  ],
   "categories": [
     {
       "id": "product-strategy",

@@ -100,7 +100,7 @@ Seções: **Executive Summary · Commercial Architecture · Value and Scaling Lo
 - O Executive Summary diz **explicitamente** se há preço público. Sem preço público, a frase é algo como "*X does not publish pricing; engagements are …*", sustentada por uma lacuna registrada no ledger.
 - Preços públicos vão exatamente como publicados (moeda, período, unidade, plano).
 - `value-metric`: liste as métricas candidatas e avalie cada uma. Candidatas inferidas levam `(Extrapolated)` e uma ressalva `inferred`.
-- Quando a categoria inteira depende de inferência (sem preço público), escreva `categories[].note` no manifest. Exemplo da Wonderful: *"Nenhum arquivo traz preço. A Wonderful não publica preços … As métricas de valor … são candidatas inferidas, não preço público."*
+- Quando a categoria inteira depende de inferência (sem preço público) ou de fontes que se contradizem (preços diferentes entre páginas), escreva `categories[].note` no manifest. Exemplo da Wonderful: *"Nenhum arquivo traz preço. A Wonderful não publica preços … As métricas de valor … são candidatas inferidas, não preço público."*
 
 ## gtm — sales-and-gtm
 

@@ -33,7 +33,7 @@ python3 $S build vicaura/<slug>    # regenera cabeçalhos, alertas, READMEs e ma
 python3 $S check vicaura/<slug>    # valida; sai com código 1 se houver erro
 ```
 
-Rode os comandos a partir da raiz do repositório (`--root` é relativo a ela; padrão `vicaura`).
+Rode os comandos a partir da raiz do repositório: `--root` é relativo ao diretório atual e o padrão é `vicaura`. Para gerar fora do repositório (um teste, por exemplo), passe `--root` com caminho absoluto. `build` e `check` aceitam qualquer caminho para a biblioteca.
 
 Você escreve **só duas coisas** em cada documento: o frontmatter e o corpo entre os marcadores. Cabeçalho, alertas de ressalva, READMEs e a lista de documentos do manifest são reescritos pelo `build`, então editar à mão é trabalho perdido. No `manifest.json`, edite apenas os campos de biblioteca: `product`, `lede`, `caveats` (ressalvas globais), `categories[].blurb`, `categories[].note` e `pending`.
 

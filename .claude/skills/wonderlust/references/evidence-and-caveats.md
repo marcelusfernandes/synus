@@ -6,9 +6,9 @@ Cada documento declara no frontmatter `status` (`sufficient` ou `limited`) e `co
 
 | confidence | status | Quando usar |
 |---|---|---|
-| 0.95 | sufficient | Quase tudo sustentado por várias páginas próprias da empresa; pouca síntese. |
-| 0.88 – 0.92 | sufficient | Sustentado por fontes, com síntese ou interpretação relevante em uma ou duas seções. |
-| 0.80 – 0.85 | limited | Partes centrais inferidas: preço não publicado, persona deduzida de poucos sinais, funcionalidade com página mas sem docs. |
+| 0.93 – 0.95 | sufficient | Quase tudo sustentado por várias páginas próprias da empresa; pouca síntese. |
+| 0.86 – 0.92 | sufficient | Sustentado por fontes, com síntese ou interpretação relevante em uma ou duas seções. No modo busca, o teto é 0.88. |
+| 0.76 – 0.85 | limited | Partes centrais inferidas: preço não publicado, persona deduzida de poucos sinais, funcionalidade com página mas sem docs. |
 | 0.60 – 0.75 | limited | O documento lê como especificação genérica: a funcionalidade é só citada, a evidência é indireta. |
 | < 0.60 | — | Não escreva como se fosse real. Prefira deixar a categoria pendente (`--skip`) ou fale com o usuário. |
 
@@ -29,7 +29,7 @@ Não marque como inferida a síntese óbvia de fatos citados no próprio parágr
 
 ## Ressalvas (`caveats`)
 
-Ressalvas ficam no frontmatter, escritas **em português**. O `build` as transforma em alertas no topo do documento e as lista no README principal (exceto as do tipo `evidence`, que aparecem só no documento).
+Ressalvas ficam no frontmatter, escritas **em português**. O `build` as transforma em alertas no topo do documento e as lista no README principal. As do tipo `evidence` são uma exceção: avaliam o documento como um todo, então aparecem só nele e não entram na contagem de "ressalvas" dos READMEs. Ressalvas globais (`caveats` do manifest) sempre abrem a lista do README principal, de qualquer tipo.
 
 ```yaml
 caveats:
@@ -50,13 +50,15 @@ caveats:
 Regras:
 
 - **`link`** recebe o `id` (não o caminho) de outro documento da biblioteca. O `build` transforma em "Ver também: [Título](caminho)".
-- **Conflitos são recíprocos**: registre a ressalva nos dois documentos, cada uma com `link` para o outro. O `check` avisa quando falta a recíproca.
+- **Conflitos entre documentos são recíprocos**: registre a ressalva nos dois documentos, cada uma com `link` para o outro. O `check` avisa quando o documento apontado não tem nenhuma ressalva `conflict`.
+- **Conflito entre fontes dentro de um documento** (duas páginas da empresa discordam e o fato só aparece ali): use `conflict` **sem** `link`, citando as duas versões e onde cada uma aparece.
+- **Conflito que aparece em 3 ou mais documentos** (ex.: preços divergentes em pricing-model, packaging e value-metric): escolha o documento que trata do fato com mais profundidade como **central**. Cada um dos outros recebe uma ressalva `conflict` com `link` para o central, e o central aponta para um deles. O README principal mostra cada par uma vez só.
 - **Não esconda conflitos.** Se as fontes discordam, mostre as duas versões, cada uma com a sua fonte. Escolher uma em silêncio cria o mesmo defeito da referência (OTE/OTC).
 - `text` é uma ou duas frases objetivas: o que é, onde está e, se souber, a provável explicação.
 
 ## Ressalvas no nível da categoria e da biblioteca
 
-- **`categories[].note`** (no `manifest.json`) vale para lacunas que afetam a categoria inteira. Aparece como aviso no README da categoria. Exemplos da referência: competição sem concorrentes nomeados nas fontes; preço sem nenhum valor público; funcionalidades com evidência fraca.
+- **`categories[].note`** (no `manifest.json`) vale para lacunas **ou conflitos** que afetam a categoria inteira, e para escolhas de escopo (ex.: "só as 3 funcionalidades principais, a pedido"). Aparece como aviso no README da categoria. Exemplos da referência: competição sem concorrentes nomeados nas fontes; preço sem nenhum valor público; funcionalidades com evidência fraca.
 - **`caveats`** (no topo do `manifest.json`) vale para ressalvas transversais que devem abrir a lista do README principal. Use o mesmo formato `kind`/`title`/`text`.
 
 Depois de editar o manifest, rode o `build`.

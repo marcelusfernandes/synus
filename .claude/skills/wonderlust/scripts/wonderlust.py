@@ -246,7 +246,7 @@ def n_ressalvas(n):
 
 class Library:
     def __init__(self, root):
-        self.root = Path(root)
+        self.root = Path(root).resolve()
         mpath = self.root / "manifest.json"
         if not mpath.exists():
             raise SystemExit(f"manifest.json não encontrado em {self.root} (rode `init` primeiro)")
@@ -381,12 +381,15 @@ class Library:
             rows.append(f"| [{p['label']}]({p['id']}/README.md) | Ainda não gerado ({names}). | 0 | — | — |")
 
         cav = ["- " + self.caveat_line(c, "README.md") for c in m.get("caveats", [])]
-        seen = set()
+        seen, pairs = set(), set()
         for d in self.docs:
             for c in flags(d["fm"]):
-                if c.get("text") in seen:
-                    continue
+                pair = frozenset((d["id"], c["link"])) if c.get("kind") == "conflict" and c.get("link") else None
+                if c.get("text") in seen or (pair and pair in pairs):
+                    continue  # mesmo texto, ou o lado recíproco de um conflito já listado
                 seen.add(c.get("text"))
+                if pair:
+                    pairs.add(pair)
                 cav.append("- " + self.caveat_line(c, "README.md", where=d["id"]))
         if not cav:
             cav = ["Nenhuma ressalva registrada."]
@@ -412,7 +415,7 @@ class Library:
 
         return f"""# {product}
 
-> Arquivos de referência gerados por {m['generator']} sobre {product} ([{domain}]({source})), organizados por categoria.
+> Arquivos de referência sobre {product} ([{domain}]({source})), gerados por {m['generator']} e organizados por categoria.
 {chr(10) + lede + chr(10) if lede else ""}
 | Fonte | Gerado | Documentos | Limited |
 |---|---|---|---|
@@ -515,6 +518,8 @@ def stub_body(title, focus, archetype, extra_subsections=None):
 
 def cmd_init(a):
     source = a.url if re.match(r"https?://", a.url) else "https://" + a.url
+    if not urlparse(source).path:
+        source += "/"
     slug = a.slug or slugify(domain_of(source).split(".")[0])
     lib = Path(a.root) / slug
     date = a.date or datetime.datetime.now(datetime.timezone.utc).date().isoformat()
@@ -656,8 +661,8 @@ def check_doc(lib, d):
             lib.err(where, f"ressalva aponta para id inexistente: '{link}'")
         if c.get("kind") == "conflict" and link in lib.doc_by_id:
             back = lib.doc_by_id[link]["fm"].get("caveats") or []
-            if not any(b.get("kind") == "conflict" and b.get("link") == d["id"] for b in back):
-                lib.warn(where, f"conflito com '{link}' sem ressalva recíproca no outro documento")
+            if not any(b.get("kind") == "conflict" for b in back):
+                lib.warn(where, f"conflito com '{link}' sem ressalva conflict no outro documento")
 
     body = d["body"]
     if re.search(r"<!--\s*TODO", body) or re.search(r"\bTODO\b", body):
