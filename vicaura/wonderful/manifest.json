@@ -1,0 +1,818 @@
+{
+  "product": "Wonderful",
+  "source": "https://wonderful.ai/",
+  "generator": "Vicaura",
+  "generated": "2026-10-03",
+  "language": "en",
+  "origin_artifact": "https://claude.ai/artifact/QUz56NJ19SM67REajzvYEC",
+  "categories": [
+    {
+      "id": "product-strategy",
+      "name": "Product Strategy",
+      "label": "Estratégia de produto",
+      "blurb": "Tese, princípios, gosto de produto, casos de uso centrais e lógica de expansão.",
+      "path": "product-strategy/",
+      "docs": [
+        "core-use-cases",
+        "expansion-logic",
+        "product-principles",
+        "product-taste",
+        "product-thesis"
+      ]
+    },
+    {
+      "id": "customers",
+      "name": "Customers",
+      "label": "Clientes",
+      "blurb": "ICP, persona compradora e persona usuária.",
+      "path": "customers/",
+      "docs": [
+        "buyer-persona",
+        "icp",
+        "user-persona"
+      ]
+    },
+    {
+      "id": "problems-and-demand",
+      "name": "Problems & Demand",
+      "label": "Problemas e demanda",
+      "blurb": "Modelo de problema, JTBD, resultados desejados, gatilhos de compra e troca, alternativas atuais.",
+      "path": "problems-and-demand/",
+      "docs": [
+        "buying-triggers",
+        "current-alternatives",
+        "desired-outcomes",
+        "jobs-to-be-done",
+        "problem-model",
+        "switching-triggers"
+      ]
+    },
+    {
+      "id": "market-and-positioning",
+      "name": "Market & Positioning",
+      "label": "Mercado e posicionamento",
+      "blurb": "Categoria, posicionamento, promessa de valor, diferenciação e visão de mercado.",
+      "path": "market-and-positioning/",
+      "docs": [
+        "category",
+        "differentiation",
+        "market-worldview",
+        "positioning",
+        "value-promise"
+      ]
+    },
+    {
+      "id": "competition-and-market-dynamics",
+      "name": "Competition & Market Dynamics",
+      "label": "Competição",
+      "blurb": "Pilha de vantagens competitivas e estratégia de troca.",
+      "note": "Nenhum dos arquivos cita um concorrente pelo nome. A comparação é contra alternativas genéricas: wrappers de LLM, SaaS self-serve e soluções construídas internamente.",
+      "path": "competition-and-market-dynamics/",
+      "docs": [
+        "competitive-advantage-stack",
+        "switching-strategy"
+      ]
+    },
+    {
+      "id": "pricing-and-monetization",
+      "name": "Pricing & Monetization",
+      "label": "Preço e monetização",
+      "blurb": "Modelo de preço, métrica de valor, empacotamento e filosofia de monetização.",
+      "note": "Nenhum arquivo traz preço. A Wonderful não publica preços, tabelas nem planos self-serve e vende por contratos enterprise plurianuais customizados. As métricas de valor (agentes ativos, throughput, tiers de deployment) são candidatas inferidas, não preço público.",
+      "path": "pricing-and-monetization/",
+      "docs": [
+        "monetization-philosophy",
+        "packaging",
+        "pricing-model",
+        "value-metric"
+      ]
+    },
+    {
+      "id": "messaging-and-brand",
+      "name": "Messaging & Brand",
+      "label": "Mensagem e marca",
+      "blurb": "Hierarquia de mensagens, narrativa, voz, léxico e linguagem do cliente.",
+      "path": "messaging-and-brand/",
+      "docs": [
+        "brand-narrative",
+        "brand-voice",
+        "customer-language",
+        "messaging-hierarchy",
+        "vocabulary-lexicon"
+      ]
+    },
+    {
+      "id": "features",
+      "name": "Features",
+      "label": "Funcionalidades",
+      "blurb": "Plataforma (Orchestrator, Skills, Knowledge, Guardrails…) e modelos de deployment.",
+      "note": "As 9 funcionalidades de plataforma (Orchestrator até CLI) têm evidência fraca (limited, 0.60 a 0.80). Leem mais como templates genéricos de spec do que como comportamento documentado da Wonderful. Trate a maior parte como inferência.",
+      "path": "features/",
+      "docs": [
+        "multi-tenant-deployment",
+        "single-tenant-deployment",
+        "on-premise-air-gapped-deployment",
+        "bring-your-own-cloud",
+        "orchestrator",
+        "guardrails",
+        "alerts",
+        "cli",
+        "evals",
+        "knowledge",
+        "permissions",
+        "workspaces",
+        "skills"
+      ]
+    }
+  ],
+  "pending": [
+    {
+      "id": "sales-and-gtm",
+      "name": "Sales & GTM",
+      "label": "Vendas e GTM",
+      "path": "sales-and-gtm/",
+      "docs": [
+        {
+          "id": "sales-motion",
+          "title": "Sales Motion",
+          "path": "sales-and-gtm/sales-motion.md"
+        }
+      ]
+    }
+  ],
+  "docs": [
+    {
+      "id": "core-use-cases",
+      "cat": "product-strategy",
+      "title": "Core Use Cases",
+      "status": "sufficient",
+      "confidence": 0.95,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "product-strategy/core-use-cases.md",
+      "summary": "Wonderful provides an enterprise AI operating system and deployment model designed to move organizations beyond isolated experimental chatbots into production-grade, multi-step autonomous workflows. Rather than treating AI as a standard…",
+      "caveats": []
+    },
+    {
+      "id": "expansion-logic",
+      "cat": "product-strategy",
+      "title": "Expansion Logic",
+      "status": "sufficient",
+      "confidence": 0.95,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "product-strategy/expansion-logic.md",
+      "summary": "Wonderful is an applied AI platform and operating system for enterprises that expands through a unique blend of high-touch professional services and productized operating layers. Rather than following a traditional bottom-up SaaS…",
+      "caveats": []
+    },
+    {
+      "id": "product-principles",
+      "cat": "product-strategy",
+      "title": "Product Principles",
+      "status": "sufficient",
+      "confidence": 0.95,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "product-strategy/product-principles.md",
+      "summary": "Wonderful provides an applied AI platform and operating system (AI OS) designed to take complex enterprise workflows into regulator-ready production. Rather than treating AI as a standard software feature or an isolated point-solution,…",
+      "caveats": []
+    },
+    {
+      "id": "product-taste",
+      "cat": "product-strategy",
+      "title": "Product Taste",
+      "status": "sufficient",
+      "confidence": 0.95,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "product-strategy/product-taste.md",
+      "summary": "Wonderful embodies an exceptionally opinionated, ceremonial, and high-touch product taste tailored specifically for mission-critical enterprise environments. Rather than leaning into self-service, weightless consumer SaaS aesthetics,…",
+      "caveats": []
+    },
+    {
+      "id": "product-thesis",
+      "cat": "product-strategy",
+      "title": "Product Thesis",
+      "status": "sufficient",
+      "confidence": 0.95,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "product-strategy/product-thesis.md",
+      "summary": "Wonderful is an applied AI platform and enterprise transformation partner designed to bridge the execution gap between large language models and complex, mission-critical enterprise workflows. Moving away from the traditional SaaS model…",
+      "caveats": []
+    },
+    {
+      "id": "buyer-persona",
+      "cat": "customers",
+      "title": "Buyer Persona",
+      "status": "sufficient",
+      "confidence": 0.95,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "customers/buyer-persona.md",
+      "summary": "The primary economic buyer and champion for Wonderful is the Enterprise Transformation Leader (such as Chief Executive Officers, Board Members for Marketing and Sales, Chief Operating Officers, or Chief Information Officers) inside…",
+      "caveats": [
+        {
+          "kind": "conflict",
+          "title": "Inconsistência",
+          "text": "Usa “OTC”; o ICP chama o mesmo cliente de “OTE”.",
+          "link": "icp"
+        }
+      ]
+    },
+    {
+      "id": "icp",
+      "cat": "customers",
+      "title": "ICP",
+      "status": "sufficient",
+      "confidence": 0.95,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "customers/icp.md",
+      "summary": "Wonderful targets global, mission-critical, and highly regulated enterprises seeking to move beyond isolated AI pilots into full-scale operational transformation. The company provides a unified AI operating system combined with on-site…",
+      "caveats": [
+        {
+          "kind": "oddity",
+          "title": "Dado estranho",
+          "text": "Menciona “a $550M Series C in late 2026”, mantido como a Vicaura retornou."
+        },
+        {
+          "kind": "conflict",
+          "title": "Inconsistência",
+          "text": "Cita “OTE” como cliente; Buyer Persona usa “OTC” para o mesmo cliente.",
+          "link": "buyer-persona"
+        }
+      ]
+    },
+    {
+      "id": "user-persona",
+      "cat": "customers",
+      "title": "User Persona",
+      "status": "sufficient",
+      "confidence": 0.95,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "customers/user-persona.md",
+      "summary": "Wonderful is an applied AI platform and operating system (AI OS) designed for large enterprise organizations across regulated, mission-critical industries (such as banking, telecommunications, healthcare, utilities, and insurance).…",
+      "caveats": []
+    },
+    {
+      "id": "buying-triggers",
+      "cat": "problems-and-demand",
+      "title": "Buying Triggers",
+      "status": "sufficient",
+      "confidence": 0.95,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "problems-and-demand/buying-triggers.md",
+      "summary": "Wonderful targets large enterprises and mission-critical institutions whose internal artificial intelligence initiatives have stalled in pilot mode or failed to bridge the gap between technical proofs-of-concept and secure,…",
+      "caveats": []
+    },
+    {
+      "id": "current-alternatives",
+      "cat": "problems-and-demand",
+      "title": "Current Alternatives",
+      "status": "sufficient",
+      "confidence": 0.95,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "problems-and-demand/current-alternatives.md",
+      "summary": "Wonderful positions itself as an enterprise-grade AI operating system paired with locally embedded deployment teams (Forward-Deployed Engineers and Deployment Strategists). Rather than competing strictly with horizontal software tools…",
+      "caveats": []
+    },
+    {
+      "id": "desired-outcomes",
+      "cat": "problems-and-demand",
+      "title": "Desired Outcomes",
+      "status": "sufficient",
+      "confidence": 0.95,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "problems-and-demand/desired-outcomes.md",
+      "summary": "Wonderful is an applied AI platform and operating layer designed to help large enterprises move past pilot purgatory and into full production across critical workflows. Rather than acting as a traditional software vendor or raw model…",
+      "caveats": []
+    },
+    {
+      "id": "jobs-to-be-done",
+      "cat": "problems-and-demand",
+      "title": "Jobs to Be Done",
+      "status": "sufficient",
+      "confidence": 0.95,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "problems-and-demand/jobs-to-be-done.md",
+      "summary": "Wonderful operates at the intersection of enterprise AI platforms and on-site professional services, positioning itself as an AI operating system coupled with forward-deployed engineering teams. The product's core demand logic does not…",
+      "caveats": [
+        {
+          "kind": "truncated",
+          "title": "Arquivo truncado",
+          "text": "Para no meio de uma frase em Causal Structure, com 3 das 6 seções habituais. A Vicaura gerou assim e ainda o reporta como completo."
+        }
+      ]
+    },
+    {
+      "id": "problem-model",
+      "cat": "problems-and-demand",
+      "title": "Problem Model",
+      "status": "sufficient",
+      "confidence": 0.95,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "problems-and-demand/problem-model.md",
+      "summary": "Wonderful addresses the core enterprise failure mode in artificial intelligence adoption: AI initiatives stall out in permanent \"pilot mode\" or result in isolated point-tools running inside legacy organizational silos rather than…",
+      "caveats": []
+    },
+    {
+      "id": "switching-triggers",
+      "cat": "problems-and-demand",
+      "title": "Switching Triggers",
+      "status": "sufficient",
+      "confidence": 0.95,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "problems-and-demand/switching-triggers.md",
+      "summary": "Wonderful targets enterprise organizations trapped in the \"pilot purgatory\" of AI adoption—where internal teams or traditional software vendors assemble disconnected AI models, vector databases, and frameworks that fail to reach…",
+      "caveats": []
+    },
+    {
+      "id": "category",
+      "cat": "market-and-positioning",
+      "title": "Category",
+      "status": "sufficient",
+      "confidence": 0.95,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "market-and-positioning/category.md",
+      "summary": "Wonderful operates as an enterprise-grade artificial intelligence platform and operational transformation partner. Rather than positioning itself purely as a foundational model provider, generic developer toolkit, or isolated…",
+      "caveats": []
+    },
+    {
+      "id": "differentiation",
+      "cat": "market-and-positioning",
+      "title": "Differentiation",
+      "status": "sufficient",
+      "confidence": 0.95,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "market-and-positioning/differentiation.md",
+      "summary": "Wonderful positions itself as an applied AI platform and operating layer for mission-critical enterprises, but its true differentiation is operational rather than purely technological. While standard SaaS and point-solution vendors…",
+      "caveats": [
+        {
+          "kind": "conflict",
+          "title": "Dado conflitante",
+          "text": "Banco Caja Social aparece como “zero to production in 19 days” em Differentiation, mas como “collections across 2.5 million clients in 19 days” em Market Worldview.",
+          "link": "market-worldview"
+        }
+      ]
+    },
+    {
+      "id": "market-worldview",
+      "cat": "market-and-positioning",
+      "title": "Market Worldview",
+      "status": "sufficient",
+      "confidence": 0.95,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "market-and-positioning/market-worldview.md",
+      "summary": "Wonderful operates on the thesis that enterprise artificial intelligence is routinely misunderstood as an IT procurement cycle when it is actually an operating model transformation. While the software-as-a-service (SaaS) era was built…",
+      "caveats": [
+        {
+          "kind": "conflict",
+          "title": "Dado conflitante",
+          "text": "Banco Caja Social aparece como “zero to production in 19 days” em Differentiation, mas como “collections across 2.5 million clients in 19 days” em Market Worldview.",
+          "link": "differentiation"
+        }
+      ]
+    },
+    {
+      "id": "positioning",
+      "cat": "market-and-positioning",
+      "title": "Positioning",
+      "status": "sufficient",
+      "confidence": 0.95,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "market-and-positioning/positioning.md",
+      "summary": "Wonderful positions itself as an applied AI platform and operational partner that takes enterprise AI from pilot mode into regulator-ready production. While traditional enterprise software treats technology adoption as a discrete…",
+      "caveats": [
+        {
+          "kind": "truncated",
+          "title": "Arquivo truncado",
+          "text": "Para no meio de uma frase na última seção, Strategic Implications. A Vicaura gerou assim e o reporta como completo."
+        }
+      ]
+    },
+    {
+      "id": "value-promise",
+      "cat": "market-and-positioning",
+      "title": "Value Promise",
+      "status": "sufficient",
+      "confidence": 0.95,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "market-and-positioning/value-promise.md",
+      "summary": "Wonderful positions itself not as a software vendor selling isolated tools, but as an operational transformation partner that bridges the execution gap in enterprise AI. The core value promise centers on moving complex enterprise…",
+      "caveats": []
+    },
+    {
+      "id": "competitive-advantage-stack",
+      "cat": "competition-and-market-dynamics",
+      "title": "Competitive Advantage Stack",
+      "status": "sufficient",
+      "confidence": 0.95,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "competition-and-market-dynamics/competitive-advantage-stack.md",
+      "summary": "Wonderful positions itself not merely as an enterprise software vendor or AI platform, but as an operating model transformation engine for mission-critical organizations. Operating in highly regulated sectors such as banking,…",
+      "caveats": []
+    },
+    {
+      "id": "switching-strategy",
+      "cat": "competition-and-market-dynamics",
+      "title": "Switching Strategy",
+      "status": "sufficient",
+      "confidence": 0.95,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "competition-and-market-dynamics/switching-strategy.md",
+      "summary": "Wonderful's switching strategy addresses the primary barrier to enterprise artificial intelligence adoption: the \"execution gap\" and the operational friction of moving from isolated proof-of-concept experiments to scaled production…",
+      "caveats": [
+        {
+          "kind": "oddity",
+          "title": "Número provavelmente corrompido",
+          "text": "Diz “19 to 3 weeks” até produção. Outros arquivos falam em 19 dias (Banco Caja Social) e 3 a 5 semanas (utilities e telecom).",
+          "link": "desired-outcomes"
+        }
+      ]
+    },
+    {
+      "id": "monetization-philosophy",
+      "cat": "pricing-and-monetization",
+      "title": "Monetization Philosophy",
+      "status": "sufficient",
+      "confidence": 0.88,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "pricing-and-monetization/monetization-philosophy.md",
+      "summary": "Wonderful operates a high-touch, enterprise-exclusive commercial model that rejects self-serve freemium loops in favor of multi-million-dollar, value-aligned transformation contracts. By bundling forward-deployed engineers (FDEs) and…",
+      "caveats": []
+    },
+    {
+      "id": "packaging",
+      "cat": "pricing-and-monetization",
+      "title": "Packaging",
+      "status": "sufficient",
+      "confidence": 0.95,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "pricing-and-monetization/packaging.md",
+      "summary": "Wonderful operates a high-touch, enterprise-exclusive monetization model centered on its AI Operating System (AI OS) and embedded deployment services rather than traditional self-serve tiers. Rather than offering standardized seat-based…",
+      "caveats": []
+    },
+    {
+      "id": "pricing-model",
+      "cat": "pricing-and-monetization",
+      "title": "Pricing Model",
+      "status": "sufficient",
+      "confidence": 0.92,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "pricing-and-monetization/pricing-model.md",
+      "summary": "Wonderful provides an AI operating system (AI OS) and custom agent deployment for large enterprises (such as banks, telecoms, and utilities). Rather than selling standard self-serve software-as-a-service (SaaS) subscriptions, Wonderful…",
+      "caveats": [
+        {
+          "kind": "truncated",
+          "title": "Arquivo truncado",
+          "text": "Para no meio de uma frase em Expansion Mechanics, com 5 das 6 seções habituais."
+        }
+      ]
+    },
+    {
+      "id": "value-metric",
+      "cat": "pricing-and-monetization",
+      "title": "Value Metric",
+      "status": "limited",
+      "confidence": 0.81,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "pricing-and-monetization/value-metric.md",
+      "summary": "Wonderful is an applied enterprise AI platform and transformation partner that delivers autonomous agents, custom interfaces via Wonderful Apps, and locally embedded Forward-Deployed Engineers (FDEs) directly into complex operational…",
+      "caveats": [
+        {
+          "kind": "oddity",
+          "title": "Termo provavelmente corrompido",
+          "text": "“bring-your-spec” provavelmente quer dizer bring-your-own-cloud.",
+          "link": "bring-your-own-cloud"
+        },
+        {
+          "kind": "inferred",
+          "title": "Métricas inferidas",
+          "text": "As estruturas de métrica de valor (agentes ativos, throughput, tiers de deployment) são candidatas inferidas, não preço público."
+        }
+      ]
+    },
+    {
+      "id": "brand-narrative",
+      "cat": "messaging-and-brand",
+      "title": "Brand Narrative",
+      "status": "sufficient",
+      "confidence": 0.95,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "messaging-and-brand/brand-narrative.md",
+      "summary": "Wonderful is positioned as an enterprise applied AI platform and operating layer that moves organizations from fragmented AI experimentation into core operating model transformation. The brand narrative rejects the traditional SaaS…",
+      "caveats": []
+    },
+    {
+      "id": "brand-voice",
+      "cat": "messaging-and-brand",
+      "title": "Brand Voice",
+      "status": "sufficient",
+      "confidence": 0.95,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "messaging-and-brand/brand-voice.md",
+      "summary": "Wonderful’s brand voice is characterized by an authoritative, pragmatic, and high-stakes tone designed for enterprise leaders, C-suite executives, and technical buyers. It bridges the gap between frontier AI capabilities and rigorous…",
+      "caveats": []
+    },
+    {
+      "id": "customer-language",
+      "cat": "messaging-and-brand",
+      "title": "Customer Language",
+      "status": "limited",
+      "confidence": 0.85,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "messaging-and-brand/customer-language.md",
+      "summary": "Wonderful positions itself as an applied AI platform and operating system for the enterprise, paired with on-site deployment teams. Because the provided website evidence is heavily weighted toward first-party company positioning rather…",
+      "caveats": [
+        {
+          "kind": "evidence",
+          "title": "Fonte da linguagem",
+          "text": "Construído principalmente a partir do copy de posicionamento da própria Wonderful, não de citações de clientes. A única citação atribuída é do FC Bayern."
+        }
+      ]
+    },
+    {
+      "id": "messaging-hierarchy",
+      "cat": "messaging-and-brand",
+      "title": "Messaging Hierarchy",
+      "status": "sufficient",
+      "confidence": 0.95,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "messaging-and-brand/messaging-hierarchy.md",
+      "summary": "Wonderful positions itself not merely as a software vendor selling AI models or isolated tools, but as an AI Operating System and deployment partner that transforms enterprise operating models. The core messaging challenge Wonderful…",
+      "caveats": []
+    },
+    {
+      "id": "vocabulary-lexicon",
+      "cat": "messaging-and-brand",
+      "title": "Vocabulary / Lexicon",
+      "status": "sufficient",
+      "confidence": 0.95,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "messaging-and-brand/vocabulary-lexicon.md",
+      "summary": "Wonderful's brand and product lexicon is engineered to transition enterprise buyers away from legacy SaaS procurement habits and isolated AI experimentation (\"pilot mode\") toward comprehensive operational transformation. The terminology…",
+      "caveats": []
+    },
+    {
+      "id": "multi-tenant-deployment",
+      "cat": "features",
+      "title": "Multi-Tenant Deployment",
+      "status": "sufficient",
+      "confidence": 0.95,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "features/multi-tenant-deployment.md",
+      "summary": "The Multi-Tenant Deployment feature allows users to run AI workloads on a shared, vendor-managed multi-tenant infrastructure. It provides automated scaling, continuous updates, full platform monitoring, and secure logical isolation…",
+      "caveats": [
+        {
+          "kind": "oddity",
+          "title": "Termo truncado",
+          "text": "“Resource Contubation” em Edge Cases provavelmente significa “Resource Contention”."
+        }
+      ]
+    },
+    {
+      "id": "single-tenant-deployment",
+      "cat": "features",
+      "title": "Single Tenant Deployment",
+      "status": "sufficient",
+      "confidence": 0.9,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "features/single-tenant-deployment.md",
+      "summary": "Provide enterprise customers with fully isolated, dedicated infrastructure instances for deploying workloads. This ensures strict data residency, security boundaries, custom configurations, and automated maintenance channels.",
+      "caveats": []
+    },
+    {
+      "id": "on-premise-air-gapped-deployment",
+      "cat": "features",
+      "title": "On-Premise Air-Gapped Deployment",
+      "status": "limited",
+      "confidence": 0.85,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "features/on-premise-air-gapped-deployment.md",
+      "summary": "Enable high-security organizations to run the product completely isolated from the public internet with zero external dependencies, ensuring absolute data privacy and compliance with strict government, defense, or enterprise security…",
+      "caveats": []
+    },
+    {
+      "id": "bring-your-own-cloud",
+      "cat": "features",
+      "title": "Bring Your Own Cloud",
+      "status": "limited",
+      "confidence": 0.8,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "features/bring-your-own-cloud.md",
+      "summary": "The Bring Your Own Cloud (BYOC) feature allows organizations to host and run AI implementations directly within their own cloud infrastructure. This ensures data remains strictly inside the organization's perimeter, providing full…",
+      "caveats": [
+        {
+          "kind": "inferred",
+          "title": "Ponto extrapolado",
+          "text": "A nota sobre bundle offline foi marcada como extrapolada."
+        }
+      ]
+    },
+    {
+      "id": "orchestrator",
+      "cat": "features",
+      "title": "Orchestrator",
+      "status": "limited",
+      "confidence": 0.8,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "features/orchestrator.md",
+      "summary": "The Orchestrator feature provides capabilities to orchestrate multi-step workflows, agent tasks, and automated processes across enterprise systems. It serves as the backbone for coordinating complex, distributed automated actions within…",
+      "caveats": [
+        {
+          "kind": "evidence",
+          "title": "Evidência fraca",
+          "text": "Esta é uma das 9 funcionalidades de plataforma com evidência limitada. O texto lê como template genérico de spec; trate a maioria das afirmações como inferência."
+        }
+      ]
+    },
+    {
+      "id": "guardrails",
+      "cat": "features",
+      "title": "Guardrails",
+      "status": "limited",
+      "confidence": 0.75,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "features/guardrails.md",
+      "summary": "The Guardrails feature enforces safety, compliance, and policy rules during AI execution. It tracks the latest policy requirements dynamically, ensuring that AI-generated outputs and interactions remain compliant with organizational,…",
+      "caveats": [
+        {
+          "kind": "evidence",
+          "title": "Evidência fraca",
+          "text": "Esta é uma das 9 funcionalidades de plataforma com evidência limitada. O texto lê como template genérico de spec; trate a maioria das afirmações como inferência."
+        }
+      ]
+    },
+    {
+      "id": "alerts",
+      "cat": "features",
+      "title": "Alerts",
+      "status": "limited",
+      "confidence": 0.7,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "features/alerts.md",
+      "summary": "The Alerts feature enables users to monitor system activity and receive automated notifications regarding critical operational events within the Wonderful platform.",
+      "caveats": [
+        {
+          "kind": "evidence",
+          "title": "Evidência fraca",
+          "text": "Esta é uma das 9 funcionalidades de plataforma com evidência limitada. O texto lê como template genérico de spec; trate a maioria das afirmações como inferência."
+        },
+        {
+          "kind": "inferred",
+          "title": "Inferência estrutural",
+          "text": "O edge case de alertas intermitentes (flapping) foi marcado como “structural inference”."
+        }
+      ]
+    },
+    {
+      "id": "cli",
+      "cat": "features",
+      "title": "CLI",
+      "status": "limited",
+      "confidence": 0.7,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "features/cli.md",
+      "summary": "Provide an implementation-ready specification for the Wonderful platform Command Line Interface (CLI), enabling users to interact with and manage platform configurations directly from their terminal.",
+      "caveats": [
+        {
+          "kind": "evidence",
+          "title": "Evidência fraca",
+          "text": "Esta é uma das 9 funcionalidades de plataforma com evidência limitada. O texto lê como template genérico de spec; trate a maioria das afirmações como inferência."
+        }
+      ]
+    },
+    {
+      "id": "evals",
+      "cat": "features",
+      "title": "Evals",
+      "status": "limited",
+      "confidence": 0.7,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "features/evals.md",
+      "summary": "The Evals feature provides continuous evaluation of AI model outputs and performance in production to ensure accuracy, reliability, and governance compliance (particularly targeting regulated domains like banking).",
+      "caveats": [
+        {
+          "kind": "evidence",
+          "title": "Evidência fraca",
+          "text": "Esta é uma das 9 funcionalidades de plataforma com evidência limitada. O texto lê como template genérico de spec; trate a maioria das afirmações como inferência."
+        }
+      ]
+    },
+    {
+      "id": "knowledge",
+      "cat": "features",
+      "title": "Knowledge",
+      "status": "limited",
+      "confidence": 0.7,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "features/knowledge.md",
+      "summary": "The Knowledge feature connects and manages enterprise data sources to power context-aware AI agents and workflows within the Wonderful platform.",
+      "caveats": [
+        {
+          "kind": "evidence",
+          "title": "Evidência fraca",
+          "text": "Esta é uma das 9 funcionalidades de plataforma com evidência limitada. O texto lê como template genérico de spec; trate a maioria das afirmações como inferência."
+        },
+        {
+          "kind": "inferred",
+          "title": "Ponto extrapolado",
+          "text": "A filtragem de PII durante a ingestão foi marcada pela Vicaura como extrapolada."
+        }
+      ]
+    },
+    {
+      "id": "permissions",
+      "cat": "features",
+      "title": "Permissions",
+      "status": "limited",
+      "confidence": 0.7,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "features/permissions.md",
+      "summary": "Manage user access controls and permissions across enterprise workspaces and data stores within Wonderful, enabling secure multi-tenant collaboration and data governance.",
+      "caveats": [
+        {
+          "kind": "evidence",
+          "title": "Evidência fraca",
+          "text": "Esta é uma das 9 funcionalidades de plataforma com evidência limitada. O texto lê como template genérico de spec; trate a maioria das afirmações como inferência."
+        }
+      ]
+    },
+    {
+      "id": "workspaces",
+      "cat": "features",
+      "title": "Workspaces",
+      "status": "limited",
+      "confidence": 0.7,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "features/workspaces.md",
+      "summary": "Enable users to organize projects, users, and operational resources into dedicated, isolated boundaries called Workspaces.",
+      "caveats": [
+        {
+          "kind": "evidence",
+          "title": "Evidência fraca",
+          "text": "Esta é uma das 9 funcionalidades de plataforma com evidência limitada. O texto lê como template genérico de spec; trate a maioria das afirmações como inferência."
+        }
+      ]
+    },
+    {
+      "id": "skills",
+      "cat": "features",
+      "title": "Skills",
+      "status": "limited",
+      "confidence": 0.6,
+      "generated": "2026-10-03",
+      "source": "https://wonderful.ai/",
+      "path": "features/skills.md",
+      "summary": "The Skills feature equips AI agents with specialized functional capabilities, allowing them to execute complex, domain-specific tasks across enterprise workflows.",
+      "caveats": [
+        {
+          "kind": "evidence",
+          "title": "Evidência fraca",
+          "text": "Esta é uma das 9 funcionalidades de plataforma com evidência limitada. O texto lê como template genérico de spec; trate a maioria das afirmações como inferência."
+        },
+        {
+          "kind": "inferred",
+          "title": "Pontos extrapolados",
+          "text": "O padrão de validação de schema e o data store foram marcados como extrapolados."
+        }
+      ]
+    }
+  ]
+}
