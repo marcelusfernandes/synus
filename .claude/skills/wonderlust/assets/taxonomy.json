@@ -1,0 +1,205 @@
+{
+  "version": 1,
+  "archetypes": {
+    "strategy": {
+      "words": [450, 900],
+      "sections": [
+        {"title": "Executive Summary", "guide": "1-2 paragraphs: what the product is, the central claim of this document, and how value is created and captured."},
+        {"title": "Strategic Thesis", "guide": "The underlying bet or belief, stated plainly (an if/then sentence or 2-3 numbered pillars)."},
+        {"title": "Core Principles", "guide": "3-5 principles as '- **Name:** explanation' bullets, each traceable to evidence."},
+        {"title": "Product Expression", "guide": "Where the thesis shows up concretely: named surfaces, features, deployment options, named customers and results."},
+        {"title": "Tradeoffs and Boundaries", "guide": "What the product deliberately does not do, what it sacrifices, and who it is not for."},
+        {"title": "Implementation Implications", "guide": "Consequences for product, engineering, GTM or deployment teams that follow from the above."}
+      ]
+    },
+    "customer": {
+      "words": [450, 850],
+      "sections": [
+        {"title": "Executive Summary", "guide": "Who this customer/persona is in one paragraph and why they matter to the product."},
+        {"title": "Primary Profile", "guide": "'- **Label:** value' bullets (e.g. Company Type & Industry, Company Size, Team & Function, Operating Maturity; or Role & Title, Reporting Line, Responsibilities, Success Metrics)."},
+        {"title": "Evidence-Backed Attributes", "guide": "Attributes inferred from concrete signals (case studies, contact-form fields, job posts, docs). Name the signal."},
+        {"title": "Needs and Constraints", "guide": "Split into ### Needs and ### Constraints, 3-4 bold-labelled bullets each."},
+        {"title": "Decision Implications", "guide": "What this profile implies for sales motion, onboarding, product scope and messaging."},
+        {"title": "Boundaries and Disqualifiers", "guide": "Who is explicitly a poor fit and why."}
+      ],
+      "subsections": {"Needs and Constraints": ["Needs", "Constraints"]}
+    },
+    "demand": {
+      "words": [450, 950],
+      "sections": [
+        {"title": "Executive Summary", "guide": "The demand dynamic this document models, in 1-2 paragraphs."},
+        {"title": "Core Model", "guide": "The central tension and the model itself (numbered causal stack, JTBD statements, outcome list, alternatives list - depending on the document)."},
+        {"title": "Causal Structure", "guide": "The chain of causes behind the model as a numbered or bulleted list with bold lead-ins."},
+        {"title": "Triggers and Context", "guide": "The conditions and moments where the model becomes active; numbered ### subsections when the document is about triggers."},
+        {"title": "Customer Consequences", "guide": "What happens to the customer if the problem persists or the outcome is reached."},
+        {"title": "Product Implications", "guide": "How the product architecture answers the model (name real surfaces/features)."}
+      ]
+    },
+    "positioning": {
+      "words": [400, 900],
+      "sections": [
+        {"title": "Executive Summary", "guide": "The positioning claim this document describes, in 1-2 paragraphs."},
+        {"title": "Strategic Definition", "guide": "The precise definition (for Category: declared, evaluation and emergent/owned layers as a numbered list)."},
+        {"title": "Audience and Frame of Reference", "guide": "Split into ### Target Audience and ### Frame of Reference (the alternatives buyers compare against)."},
+        {"title": "Value and Differentiation", "guide": "Structural differentiators with bold lead-ins; numbered ### subsections allowed in Positioning."},
+        {"title": "Supporting Proof", "guide": "Named customers, exact metrics, funding, partnerships - copied verbatim from the facts ledger."},
+        {"title": "Strategic Implications", "guide": "What the positioning enables or requires going forward."}
+      ],
+      "subsections": {"Audience and Frame of Reference": ["Target Audience", "Frame of Reference"]}
+    },
+    "competition": {
+      "words": [450, 1000],
+      "sections": [
+        {"title": "Executive Summary", "guide": "The competitive logic in 1-2 paragraphs, including the alternatives the product is compared against."},
+        {"title": "Strategic Model", "guide": "How the company competes, as 3-4 bold-labelled bullets."},
+        {"title": "Advantage or Switching Stack", "guide": "Competitive Advantage Stack: a table with columns Advantage Dimension | Description | Buyer Consequence | Uniqueness | Evidence | Score / Strength. Switching Strategy: a numbered list of switching-cost neutralizers."},
+        {"title": "Buyer Consequences", "guide": "What the buyer gets or avoids because of the stack."},
+        {"title": "Reinforcing Mechanisms", "guide": "The flywheel: a numbered list where each advantage feeds the next."},
+        {"title": "Risks and Limits", "guide": "Where the stack is fragile or does not hold."}
+      ]
+    },
+    "commercial": {
+      "words": [400, 850],
+      "sections": [
+        {"title": "Executive Summary", "guide": "The commercial reality in 1-2 paragraphs; say explicitly whether prices are public."},
+        {"title": "Commercial Architecture", "guide": "How the offer is sold and contracted (self-serve vs. sales-led, contract shape, dimensions that drive contract value)."},
+        {"title": "Value and Scaling Logic", "guide": "What makes the bill grow and why that tracks customer value."},
+        {"title": "Packaging and Boundaries", "guide": "Tiers, editions, add-ons, deployment options, services and what is gated where."},
+        {"title": "Expansion Mechanics", "guide": "How revenue expands inside an account (use cases, units, geographies)."},
+        {"title": "Risks and Tradeoffs", "guide": "Misalignment risks of the model and the tradeoffs accepted."}
+      ]
+    },
+    "gtm": {
+      "words": [450, 900],
+      "sections": [
+        {"title": "Executive Summary", "guide": "The go-to-market motion in 1-2 paragraphs: sales-led vs. product-led, deal shape, who sells to whom."},
+        {"title": "Motion Model", "guide": "Entry point, sales cycle shape, deal size signals, self-serve vs. demo/contact flows."},
+        {"title": "Buyer Journey and Stages", "guide": "Numbered stages from first touch to expansion, grounded in observable steps (forms, demos, pilots, phases)."},
+        {"title": "Roles and Channels", "guide": "Sales/deployment roles (careers pages are good evidence), partners, regional presence, events, marketplaces."},
+        {"title": "Proof and Enablement", "guide": "Assets used to sell: case studies, ROI claims, trials/pilots, content, certifications."},
+        {"title": "Risks and Tradeoffs", "guide": "Constraints of the motion (cycle length, cost of sale, scalability)."}
+      ]
+    },
+    "messaging": {
+      "words": [400, 950],
+      "sections": [
+        {"title": "Executive Summary", "guide": "The messaging/brand system this document describes in 1-2 paragraphs."},
+        {"title": "Core System", "guide": "The system itself (levels, term groups, pains/outcomes/objections - see per-document shape)."},
+        {"title": "Patterns and Hierarchy", "guide": "How the elements are ordered and recur; numbered levels or ### subsections."},
+        {"title": "Representative Evidence", "guide": "Verbatim quotes from the source, as bullets in double quotes. Never paraphrase here."},
+        {"title": "Usage Rules", "guide": "Do/don't rules derived from the evidence, with bold lead-ins."},
+        {"title": "Application Guidance", "guide": "How to apply the system when writing copy, docs or briefs."}
+      ]
+    },
+    "feature": {
+      "words": [250, 700],
+      "sections": [
+        {"title": "Purpose", "guide": "1-2 sentences: what the feature enables and why it exists."},
+        {"title": "Users and Jobs", "guide": "'- **Role**: job' bullets (humans and, if relevant, agents/systems)."},
+        {"title": "Functional Requirements", "guide": "3-6 requirements, '- **FRn: Name**: description' or bold-labelled bullets."},
+        {"title": "Flows", "guide": "Numbered flows (creation, execution, monitoring...) with arrows for step sequences."},
+        {"title": "States", "guide": "Lifecycle states as '- `State`: meaning'."},
+        {"title": "Edge Cases", "guide": "Failure and boundary scenarios with expected handling."},
+        {"title": "Data Considerations", "guide": "Storage, retention, encryption, limits, audit."},
+        {"title": "Security and Privacy", "guide": "Access control, isolation, secrets, PII."},
+        {"title": "Accessibility", "guide": "WCAG-level expectations for the feature's UI (or CLI equivalents)."},
+        {"title": "Acceptance Criteria", "guide": "Testable criteria, 'AC-n:' style allowed."},
+        {"title": "Non-Goals", "guide": "What the feature explicitly will not do."}
+      ]
+    }
+  },
+  "categories": [
+    {
+      "id": "product-strategy", "name": "Product Strategy", "label": "Estratégia de produto", "archetype": "strategy",
+      "blurb": "Tese, princípios, gosto de produto, casos de uso centrais e lógica de expansão.",
+      "docs": [
+        {"id": "core-use-cases", "title": "Core Use Cases", "focus": "The concrete workflows/jobs where the product is used in production, clustered by industry or function, with named customers and outcomes."},
+        {"id": "expansion-logic", "title": "Expansion Logic", "focus": "How the product enters an account (entry wedge) and expands: adjacent workflows, business lines, geographies, ownership handover."},
+        {"id": "product-principles", "title": "Product Principles", "focus": "The decision rules behind the product. Core Principles must be 3-5 '### N. Prefer X over Y' subsections, each with '* **Operational Rule:**' and '* **Context:**' bullets."},
+        {"id": "product-taste", "title": "Product Taste", "focus": "The product's stance on density, interaction style, copy/terminology and onboarding; tradeoffs such as opinionated vs. configurable, speed vs. ceremony, expert vs. novice."},
+        {"id": "product-thesis", "title": "Product Thesis", "focus": "The core bet. Strategic Thesis must contain one 'If ..., then ... must ..., producing ...' sentence followed by 2-3 numbered pillars."}
+      ]
+    },
+    {
+      "id": "customers", "name": "Customers", "label": "Clientes", "archetype": "customer",
+      "blurb": "ICP, persona compradora e persona usuária.",
+      "docs": [
+        {"id": "buyer-persona", "title": "Buyer Persona", "focus": "The economic buyer and champion: titles, mandate, KPIs, buying criteria, objections, how they evaluate."},
+        {"id": "icp", "title": "ICP", "focus": "The ideal customer at company level: industry, size, function, operating maturity, tech/infra requirements, disqualifiers."},
+        {"id": "user-persona", "title": "User Persona", "focus": "The day-to-day users (one primary archetype, optionally secondary ones): workflows, tools touched, needs, frustrations."}
+      ]
+    },
+    {
+      "id": "problems-and-demand", "name": "Problems & Demand", "label": "Problemas e demanda", "archetype": "demand",
+      "blurb": "Modelo de problema, JTBD, resultados desejados, gatilhos de compra e troca, alternativas atuais.",
+      "docs": [
+        {"id": "buying-triggers", "title": "Buying Triggers", "focus": "Events and thresholds that start a purchase. Triggers and Context should use numbered '### N. Trigger Name' subsections."},
+        {"id": "current-alternatives", "title": "Current Alternatives", "focus": "What customers do today instead (DIY/in-house, incumbents, services firms, status quo) and why each falls short."},
+        {"id": "desired-outcomes", "title": "Desired Outcomes", "focus": "Measurable outcomes customers want, with the metrics the company itself uses (exact figures from the ledger)."},
+        {"id": "jobs-to-be-done", "title": "Jobs to Be Done", "focus": "Core Model must contain 3-5 JTBD statements in the form '- **When** ..., **I want to** ..., **so I can** ...'; also functional, emotional and social jobs."},
+        {"id": "problem-model", "title": "Problem Model", "focus": "Core Model as a numbered causal stack: Surface Symptom, Underlying Operational Mechanism, Business Consequence, Emotional and Strategic Consequence."},
+        {"id": "switching-triggers", "title": "Switching Triggers", "focus": "What makes customers abandon their current solution for this one. Triggers and Context should use numbered '### N. Trigger Name' subsections."}
+      ]
+    },
+    {
+      "id": "market-and-positioning", "name": "Market & Positioning", "label": "Mercado e posicionamento", "archetype": "positioning",
+      "blurb": "Categoria, posicionamento, promessa de valor, diferenciação e visão de mercado.",
+      "docs": [
+        {"id": "category", "title": "Category", "focus": "Strategic Definition must list three layers: 1. Declared Category, 2. Evaluation Category, 3. Emergent/Owned Category."},
+        {"id": "differentiation", "title": "Differentiation", "focus": "What is structurally different versus the frame of reference, and the proof for each difference."},
+        {"id": "market-worldview", "title": "Market Worldview", "focus": "The company's belief about how the market is changing: the old way vs. the new way and why now."},
+        {"id": "positioning", "title": "Positioning", "focus": "Classic positioning: for whom, against what, the numbered differentiators ('### N. Name' under Value and Differentiation) and proof."},
+        {"id": "value-promise", "title": "Value Promise", "focus": "The core promise to the customer, what it commits to, and the evidence that it is kept."}
+      ]
+    },
+    {
+      "id": "competition-and-market-dynamics", "name": "Competition & Market Dynamics", "label": "Competição", "archetype": "competition",
+      "blurb": "Pilha de vantagens competitivas e estratégia de troca.",
+      "docs": [
+        {"id": "competitive-advantage-stack", "title": "Competitive Advantage Stack", "focus": "Advantage or Switching Stack must be a table: Advantage Dimension | Description | Buyer Consequence | Uniqueness | Evidence | Score / Strength (dimensions such as Product, Service, Trust & Architecture, Distribution, Data & R&D)."},
+        {"id": "switching-strategy", "title": "Switching Strategy", "focus": "How the company lowers switching costs and displaces incumbents; Advantage or Switching Stack as a numbered list of neutralizers."}
+      ]
+    },
+    {
+      "id": "pricing-and-monetization", "name": "Pricing & Monetization", "label": "Preço e monetização", "archetype": "commercial",
+      "blurb": "Modelo de preço, métrica de valor, empacotamento e filosofia de monetização.",
+      "docs": [
+        {"id": "monetization-philosophy", "title": "Monetization Philosophy", "focus": "The company's beliefs about what it charges for and why; what it refuses to charge for."},
+        {"id": "packaging", "title": "Packaging", "focus": "How the offer is bundled: plans/editions, add-ons, deployment options, services, and gating."},
+        {"id": "pricing-model", "title": "Pricing Model", "focus": "The price structure (subscription, usage, seats, contracts). Public prices copied exactly with currency and period; if none are published, say so in the Executive Summary."},
+        {"id": "value-metric", "title": "Value Metric", "focus": "The unit that should scale price with customer value: list candidates, assess each, and mark inferred candidates."}
+      ]
+    },
+    {
+      "id": "sales-and-gtm", "name": "Sales & GTM", "label": "Vendas e GTM", "archetype": "gtm",
+      "blurb": "Motion de vendas, jornada do comprador, papéis e canais.",
+      "docs": [
+        {"id": "sales-motion", "title": "Sales Motion", "focus": "How the company finds, sells to and expands customers: motion model, buyer journey stages, roles and channels, proof assets."}
+      ]
+    },
+    {
+      "id": "messaging-and-brand", "name": "Messaging & Brand", "label": "Mensagem e marca", "archetype": "messaging",
+      "blurb": "Hierarquia de mensagens, narrativa, voz, léxico e linguagem do cliente.",
+      "docs": [
+        {"id": "brand-narrative", "title": "Brand Narrative", "focus": "The story arc (old world, tension, new way, proof). Patterns and Hierarchy must have ### Narrative Pillars and ### Voice and Tone.", "subsections": {"Patterns and Hierarchy": ["Narrative Pillars", "Voice and Tone"]}},
+        {"id": "brand-voice", "title": "Brand Voice", "focus": "Voice attributes, tone shifts by context, sentence-level patterns, do/don't."},
+        {"id": "customer-language", "title": "Customer Language", "focus": "How customers describe pains, outcomes and objections. Prefer attributed customer quotes; if the language comes mostly from the company's own copy, add an 'evidence' caveat saying so."},
+        {"id": "messaging-hierarchy", "title": "Messaging Hierarchy", "focus": "Core System as six levels.", "subsections": {"Core System": ["1. Category and Context", "2. Primary Promise", "3. Supporting Benefits", "4. Differentiation", "5. Proof", "6. Capabilities"]}},
+        {"id": "vocabulary-lexicon", "title": "Vocabulary / Lexicon", "focus": "Core System as seven term groups, each a list of '- **Term:** definition' bullets.", "subsections": {"Core System": ["Category Terms", "Owned and Branded Terms", "Customer Nouns", "Problem Terms", "Action Verbs", "Outcome Terms", "Avoided and Rejected Terms"]}}
+      ]
+    },
+    {
+      "id": "features", "name": "Features", "label": "Funcionalidades", "archetype": "feature",
+      "blurb": "Funcionalidades da plataforma e modelos de deployment.",
+      "dynamic": true,
+      "docs": []
+    }
+  ],
+  "caveat_kinds": {
+    "evidence": {"tag": "Evidência", "alert": "WARNING"},
+    "inferred": {"tag": "Inferido", "alert": "NOTE"},
+    "oddity": {"tag": "Estranheza", "alert": "NOTE"},
+    "conflict": {"tag": "Conflito", "alert": "CAUTION"},
+    "truncated": {"tag": "Truncado", "alert": "CAUTION"}
+  }
+}

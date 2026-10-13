@@ -1,0 +1,40 @@
+{
+  "skill_name": "wonderlust",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Gera a biblioteca de referência no formato da Wonderful para https://cal.com — mas por enquanto só as categorias customers, pricing-and-monetization e features (com 3 funcionalidades principais). Deixa as outras categorias como pendentes.",
+      "expected_output": "vicaura/cal/ com manifest.json, README.md, 3 categorias completas (3 + 4 documentos + 3 funcionalidades), as demais em pending com README placeholder; `check` com 0 erros.",
+      "files": [],
+      "assertions": [
+        "check termina com 0 erro(s)",
+        "categorias puladas aparecem em manifest.pending e têm README placeholder",
+        "nenhum documento com confidence 0.0 ou TODO restante",
+        "preços citados em pricing-model batem com o ledger (mesmos valores, mesma moeda e período)",
+        "documentos sustentados só por resumos de busca têm confidence <= 0.88 e há ressalva global no manifest"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "faz o mesmo que a gente fez com a wonderful pra https://www.sierra.ai, completo",
+      "expected_output": "vicaura/sierra/ completo: 9 categorias, 36 documentos fixos + 6-15 funcionalidades, check com 0 erros, ressalvas de conflito recíprocas, lede preenchido.",
+      "files": [],
+      "assertions": [
+        "check termina com 0 erro(s)",
+        "existem os 36 documentos fixos da taxonomia",
+        "features tem entre 6 e 15 documentos",
+        "todo conflict tem ressalva recíproca no documento apontado"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "roda uma auditoria na pasta vicaura/wonderful e me diz o que tá fora do padrão",
+      "expected_output": "Relatório do `check` explicado em português: 4 erros conhecidos (core-use-cases, pricing-model, brand-voice com seções em ###; jobs-to-be-done truncado) e os avisos agrupados por tipo; nenhuma edição nos arquivos.",
+      "files": [],
+      "assertions": [
+        "não modifica nenhum arquivo em vicaura/wonderful",
+        "menciona os 3 documentos com seções aninhadas e o jobs-to-be-done truncado"
+      ]
+    }
+  ]
+}
