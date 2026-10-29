@@ -31,6 +31,7 @@ S=.claude/skills/wonderlust/scripts/wonderlust.py
 python3 $S init <url> --product "Nome" [--slug s] [--feature "Nome"]... [--skip <categoria>]... [--lede "..."]
 python3 $S build vicaura/<slug>    # regenera cabeçalhos, alertas, READMEs e manifest.json
 python3 $S check vicaura/<slug>    # valida; sai com código 1 se houver erro
+python3 $S site vicaura/<slug> -o <arquivo>.html   # página navegável para publicar como artifact
 ```
 
 Rode os comandos a partir da raiz do repositório: `--root` é relativo ao diretório atual e o padrão é `vicaura`. Para gerar fora do repositório (um teste, por exemplo), passe `--root` com caminho absoluto. `build` e `check` aceitam qualquer caminho para a biblioteca.
@@ -106,7 +107,7 @@ O `check` valida a forma, não os fatos. Antes de entregar:
 
 ### 8. Entregar
 
-Diga ao usuário onde está a biblioteca, quantos documentos têm cada status, quais ressalvas importam e o que não foi encontrado. Siga as regras do repositório para commit e push: não faça sem pedido explícito, a menos que o ambiente exija.
+Diga ao usuário onde está a biblioteca, quantos documentos têm cada status, quais ressalvas importam e o que não foi encontrado. Para facilitar a leitura, gere a página navegável com `site` e publique o `.html` com a ferramenta de Artifact. A página segue o visual do "Wonderful Reference": índice lateral, busca, ressalvas, marcações `(Extrapolated)` e propostas destacadas, e o documento-fonte quando houver. O artifact é privado até o usuário compartilhar. Se a fonte for um rascunho interno, gere a página fora do repositório. Siga as regras do repositório para commit e push: não faça sem pedido explícito, a menos que o ambiente exija.
 
 ## Princípios (o porquê)
 

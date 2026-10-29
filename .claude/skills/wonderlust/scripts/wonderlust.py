@@ -6,12 +6,14 @@ Uso:
                 [--skip CATEGORIA ...] [--generator G] [--date AAAA-MM-DD] [--lede TEXTO] [--own-product]
   wonderlust.py build <pasta-da-biblioteca>
   wonderlust.py check <pasta-da-biblioteca> [--strict]
+  wonderlust.py site <pasta-da-biblioteca> -o <arquivo.html>   # página navegável para publicar como artifact
 
 O agente escreve só o frontmatter e o corpo (entre os marcadores) de cada documento.
 Tudo o mais (cabeçalho, alertas de ressalva, READMEs, manifest.json) é gerado por `build`.
 """
 import argparse
 import datetime
+import html as htmllib
 import json
 import os
 import posixpath
@@ -818,6 +820,42 @@ def cmd_check(a):
     raise SystemExit(1 if failed else 0)
 
 
+def cmd_site(a):
+    lib = Library(a.library)
+    if lib.errors:
+        report(lib)
+        raise SystemExit("site abortado: corrija os erros de leitura acima")
+    m = lib.manifest
+    source = m["source"]
+    source_doc = None
+    if not is_url(source) and (lib.root / source).is_file():
+        lines = (lib.root / source).read_text(encoding="utf-8").strip().split("\n")
+        source_doc = {"title": lines[0].lstrip("# ").strip(), "path": source, "md": "\n".join(lines[1:]).strip()}
+    data = {
+        "meta": {"product": m["product"], "lede": m.get("lede", ""), "source": source,
+                 "source_label": domain_of(source) if is_url(source) else posixpath.basename(source),
+                 "generated": m["generated"], "generator": m["generator"], "own_product": bool(m.get("own_product")),
+                 "root": lib.root.parent.name if lib.root.parent.name == "vicaura" else "biblioteca", "slug": lib.root.name},
+        "caveats": m.get("caveats", []),
+        "categories": [{k: c[k] for k in ("id", "name", "label", "blurb", "note") if k in c} for c in lib.cats],
+        "pending": [{"label": p["label"], "docs": [x["title"] for x in p.get("docs", [])]} for p in lib.pending],
+        "docs": [{"id": d["id"], "cat": d["cat"], "title": d["fm"].get("title", d["id"]), "status": d["fm"].get("status"),
+                  "confidence": d["fm"].get("confidence"), "generated": d["fm"].get("generated"), "path": d["path"],
+                  "summary": summary_of(d["body"]), "caveats": d["fm"].get("caveats") or [], "md": d["body"]}
+                 for d in lib.docs],
+        "source_doc": source_doc,
+    }
+    tpl = (HERE.parent / "assets" / "viewer.html").read_text(encoding="utf-8")
+    payload = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
+    desc = f"Biblioteca de referência de {m['product']}: {len(lib.docs)} documentos em {len(lib.cats)} categorias."
+    out = (tpl.replace("__TITLE__", htmllib.escape(f"{m['product']} Reference"))
+              .replace("__DESCRIPTION__", htmllib.escape(desc))
+              .replace("__DATA__", payload))
+    Path(a.output).parent.mkdir(parents=True, exist_ok=True)
+    Path(a.output).write_text(out, encoding="utf-8")
+    print(f"site ok: {a.output} ({len(out) // 1024} KB, {len(lib.docs)} documentos)")
+
+
 def report(lib):
     for where, msg in sorted(lib.errors):
         print(f"ERRO  {where}: {msg}")
@@ -846,8 +884,11 @@ def main():
     c = sub.add_parser("check", help="valida estrutura, frontmatter e consistência")
     c.add_argument("library")
     c.add_argument("--strict", action="store_true", help="avisos também falham")
+    w = sub.add_parser("site", help="gera uma página HTML navegável (para publicar como artifact)")
+    w.add_argument("library")
+    w.add_argument("-o", "--output", required=True, help="arquivo .html de saída")
     a = ap.parse_args()
-    {"init": cmd_init, "build": cmd_build, "check": cmd_check}[a.cmd](a)
+    {"init": cmd_init, "build": cmd_build, "check": cmd_check, "site": cmd_site}[a.cmd](a)
 
 
 if __name__ == "__main__":
