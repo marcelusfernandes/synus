@@ -93,6 +93,8 @@ def _scalar(v):
     v = v.strip()
     if v == "[]":
         return []
+    if v.startswith("[") and v.endswith("]"):
+        return [_scalar(x) for x in v[1:-1].split(",") if x.strip()]
     if v.startswith('"'):
         return json.loads(v)
     if v.startswith("'") and v.endswith("'") and len(v) >= 2:
