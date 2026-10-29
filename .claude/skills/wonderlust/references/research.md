@@ -47,14 +47,20 @@ Alguns ambientes bloqueiam o acesso direto às páginas, mas deixam o WebSearch 
 Quando a fonte é um documento que o usuário forneceu (tese, PRD, memo), e não um site:
 
 1. **Salve o documento literalmente** num arquivo `.md` e rode `init <arquivo> --product "Nome" [--own-product]`. O `init` copia o arquivo para `<biblioteca>/fontes/` e usa o caminho relativo (`fontes/<arquivo>.md`) como `source`. Nos `sources` dos documentos, use esse mesmo caminho.
-2. **Não pesquise a web sobre a empresa**: o nome pode ser de outra empresa, e o documento é a fonte. Busque só para verificar referências externas que o documento cita (estudos, números). O que não for localizado entra em Gaps como "citado pelo documento, não verificado".
+2. **Pesquise a web para complementar, não para substituir.** O documento diz o que a empresa pensa e tem. A pesquisa traz o que um documento interno nunca traz e que a biblioteca precisa: concorrentes e alternativas reais, dados de mercado, pesquisas acadêmicas e estudos que confirmam ou contestam a tese, práticas de referência e números de comparação. Regras:
+   - **Primeiro, verifique tudo o que o documento cita** (estudos, autores, números). Faça buscas profundas (`mode: extended`) antes de concluir que algo não existe; só registre "não localizado" depois de pelo menos três buscas com formulações diferentes.
+   - **Depois, preencha as lacunas** que o arquétipo de cada categoria expõe: quem são os concorrentes, quem compra esse tipo de produto, que métricas o mercado usa, que evidência externa sustenta ou contradiz cada afirmação central.
+   - **Não pesquise o nome da empresa como fonte sobre ela**, a não ser que o usuário dê o site: o nome pode ser de outra empresa.
+   - No ledger, mantenha os fatos internos (`§seção`) separados da evidência externa (`URL`). Nos documentos, a evidência externa é atribuída ("Garicano, Li and Wu argue…") e as URLs vão para `sources`.
+   - Uma aplicação da evidência externa à empresa ("isso sugere que a Tacit…") é inferência e leva `(Extrapolated)`. O fato externo em si, com fonte, não leva.
+   - Pesquisa serve para trazer fatos que mudam o conteúdo. Se uma seção continua sem evidência depois da pesquisa, diga isso em uma frase em vez de preencher com texto genérico.
 3. **Cite por seção.** No ledger, cada fato aponta a seção do documento (§Título), não uma URL.
 4. **Glossário canônico.** Se o documento não está em inglês, fixe no ledger uma tradução única para cada termo próprio (nomes de funcionalidades, conceitos). Os documentos usam sempre essa forma e, na primeira menção, mostram o termo original em itálico entre parênteses, só quando ele for diferente do inglês (`Tracker` não precisa de `(*Tracker*)`). A forma canônica é só o termo; explicações vão no texto, não no glossário (`Refino`, e não `Refino (refinement interview)`).
 5. **Separe o que existe do que é proposta.** Documentos internos misturam o produto atual com planos. Esta é uma exceção à regra de não incluir funcionalidades do roadmap: propostas podem virar especificações, desde que o Purpose comece com "Proposed, not built:" e o documento tenha uma ressalva `evidence` com o título "Proposta, não construída", dizendo em que etapa do plano ela entra. Nos outros documentos, marque cada proposta no próprio texto, por exemplo "(proposed, stage 2, not built)". A ressalva por documento só é necessária nas especificações.
    - **Confiança de uma proposta** mede quanto da especificação está no documento-fonte, e não se ela vai ser construída.
    - **Frases sobre a própria fonte** ("the thesis does not define X") não levam `(Extrapolated)` quando a lacuna está registrada em Gaps no ledger.
    - **Números externos citados pelo documento e não verificados** levam uma ressalva `evidence` com o título "Dado citado, não verificado", no documento que usar o número.
-6. **Escopo por evidência.** Gere só as categorias que o documento sustenta. As demais vão para `--skip`, e a lacuna é registrada no ledger.
+6. **Escopo por evidência.** Gere as categorias que o documento e a pesquisa sustentam juntos. Competição e clientes, por exemplo, costumam ficar viáveis com pesquisa, mesmo quando o documento não fala deles. As demais vão para `--skip`, e a lacuna é registrada no ledger.
 7. **Ressalva global.** Adicione ao `caveats` do manifest uma ressalva `evidence` dizendo que a biblioteca vem de uma fonte interna única, com a data e o estado dela (ex.: rascunho, nada decidido).
 
 ## O ledger de fatos
