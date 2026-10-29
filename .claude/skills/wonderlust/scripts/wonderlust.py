@@ -2,8 +2,8 @@
 """wonderlust: cria, monta e valida bibliotecas de referência de produto no formato vicaura/wonderful.
 
 Uso:
-  wonderlust.py init <url> --product NOME [--slug S] [--root DIR] [--feature NOME ...]
-                [--skip CATEGORIA ...] [--generator G] [--date AAAA-MM-DD] [--lede TEXTO]
+  wonderlust.py init <url|documento> --product NOME [--slug S] [--root DIR] [--feature NOME ...]
+                [--skip CATEGORIA ...] [--generator G] [--date AAAA-MM-DD] [--lede TEXTO] [--own-product]
   wonderlust.py build <pasta-da-biblioteca>
   wonderlust.py check <pasta-da-biblioteca> [--strict]
 
@@ -69,6 +69,18 @@ def bare_or_quoted(v):
 def domain_of(url):
     host = urlparse(url).netloc or url
     return host[4:] if host.startswith("www.") else host
+
+
+def is_url(s):
+    return str(s).startswith(("http://", "https://"))
+
+
+def valid_source(root, s):
+    """URL http(s) ou caminho relativo a um documento-fonte guardado na biblioteca (modo documento interno)."""
+    if is_url(s):
+        return True
+    s = str(s)
+    return bool(s) and not s.startswith("/") and ".." not in s.split("/") and (Path(root) / s).is_file()
 
 
 def rel_link(from_path, to_path):
@@ -368,7 +380,7 @@ class Library:
     def render_readme(self):
         m = self.manifest
         product, source = m["product"], m["source"]
-        domain = domain_of(source)
+        domain = domain_of(source) if is_url(source) else posixpath.basename(source)
         total = len(self.docs)
         limited = sum(d["fm"].get("status") == "limited" for d in self.docs)
         rows = []
@@ -398,6 +410,14 @@ class Library:
         tree = [f"{self.root.name}/",
                 "├── README.md              # esta visão geral",
                 "├── manifest.json          # metadados de categorias, documentos e ressalvas"]
+        if (self.root / "fontes").is_dir():
+            tree.append("├── fontes/                # documentos-fonte internos (modo documento interno)")
+        if m.get("own_product"):
+            notice = (f"> **Produto próprio.** Estes arquivos descrevem {product} a partir de documentos internos. "
+                      "O que é proposta ou rascunho está marcado como tal: não trate como fato de mercado.")
+        else:
+            notice = (f"> **Produto de referência.** Estes arquivos descrevem {product}, não o nosso produto. "
+                      "Use como exemplo, benchmark ou evidência de mercado.")
         for i, (cid, n) in enumerate(dirs):
             branch = "└──" if i == len(dirs) - 1 else "├──"
             tree.append(f"{branch} {cid}/".ljust(42) + (f"# {n} docs + README.md" if n else "# placeholder"))
@@ -422,7 +442,7 @@ class Library:
 | [{domain}]({source}) | {m['generated']} UTC | {total} | {limited} |
 
 > [!IMPORTANT]
-> **Produto de referência.** Estes arquivos descrevem {product}, não o nosso produto. Use como exemplo, benchmark ou evidência de mercado.
+{notice}
 
 ## Categorias
 
@@ -483,7 +503,7 @@ Tipos de ressalva (`kind`): `evidence` (evidência fraca), `inferred` (inferido)
             entry["caveats"] = fm.get("caveats") or []
             docs.append(entry)
         m["docs"] = docs
-        order = ["product", "source", "generator", "generated", "language", "lede", "origin_artifact",
+        order = ["product", "source", "generator", "generated", "language", "own_product", "lede", "origin_artifact",
                  "caveats", "categories", "pending", "docs"]
         out = {k: m[k] for k in order if k in m}
         out.update({k: v for k, v in m.items() if k not in out})
@@ -517,11 +537,24 @@ def stub_body(title, focus, archetype, extra_subsections=None):
 
 
 def cmd_init(a):
-    source = a.url if re.match(r"https?://", a.url) else "https://" + a.url
-    if not urlparse(source).path:
-        source += "/"
-    slug = a.slug or slugify(domain_of(source).split(".")[0])
+    local_doc = Path(a.url) if Path(a.url).is_file() else None
+    if local_doc:
+        if not a.product:
+            raise SystemExit("com documento interno como fonte, informe --product")
+        source = f"fontes/{local_doc.name}"
+        slug = a.slug or slugify(a.product)
+    else:
+        source = a.url if re.match(r"https?://", a.url) else "https://" + a.url
+        if not urlparse(source).path:
+            source += "/"
+        slug = a.slug or slugify(domain_of(source).split(".")[0])
     lib = Path(a.root) / slug
+    if local_doc:
+        dest = lib / source
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        if not dest.exists():
+            dest.write_bytes(local_doc.read_bytes())
+            print(f"Documento-fonte copiado para {dest}")
     date = a.date or datetime.datetime.now(datetime.timezone.utc).date().isoformat()
     mpath = lib / "manifest.json"
     if mpath.exists():
@@ -542,8 +575,10 @@ def cmd_init(a):
             else:
                 cats.append({**base, "path": f"{c['id']}/", "docs": []})
         manifest = {"product": a.product or domain_of(source).split(".")[0].capitalize(), "source": source,
-                    "generator": a.generator, "generated": date, "language": "en",
-                    "lede": a.lede or "", "caveats": [], "categories": cats, "pending": pending, "docs": []}
+                    "generator": a.generator, "generated": date, "language": "en"}
+        if a.own_product:
+            manifest["own_product"] = True
+        manifest.update({"lede": a.lede or "", "caveats": [], "categories": cats, "pending": pending, "docs": []})
         lib.mkdir(parents=True, exist_ok=True)
         mpath.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         print(f"Biblioteca criada: {lib}")
@@ -636,14 +671,14 @@ def check_doc(lib, d):
             lib.warn(where, f"status limited com confidence {conf} (> 0.85): revise")
     if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(fm.get("generated", ""))):
         lib.err(where, f"generated deve ser AAAA-MM-DD: {fm.get('generated')!r}")
-    if not str(fm.get("source", "")).startswith(("http://", "https://")):
-        lib.err(where, "source deve ser uma URL http(s)")
+    if not valid_source(lib.root, fm.get("source", "")):
+        lib.err(where, "source deve ser uma URL http(s) ou um arquivo existente em fontes/")
     if "sources" in fm:
         srcs = fm["sources"]
         if not isinstance(srcs, list) or not srcs:
-            lib.warn(where, "sources vazio: liste as URLs que sustentam o documento")
-        elif any(not str(s).startswith(("http://", "https://")) for s in srcs):
-            lib.err(where, "sources deve conter apenas URLs http(s)")
+            lib.warn(where, "sources vazio: liste as URLs (ou arquivos de fontes/) que sustentam o documento")
+        elif any(not valid_source(lib.root, s) for s in srcs):
+            lib.err(where, "sources deve conter URLs http(s) ou arquivos existentes em fontes/")
     cav = fm.get("caveats")
     if not isinstance(cav, list):
         lib.err(where, "caveats deve ser uma lista (use [] quando não houver)")
@@ -793,7 +828,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
     i = sub.add_parser("init", help="cria a biblioteca e os stubs dos documentos")
-    i.add_argument("url")
+    i.add_argument("url", metavar="fonte", help="URL do site, ou caminho de um documento interno (modo documento interno)")
     i.add_argument("--product", help="nome do produto como a empresa escreve")
     i.add_argument("--slug", help="nome da pasta (padrão: primeiro rótulo do domínio)")
     i.add_argument("--root", default="vicaura", help="pasta raiz das bibliotecas (padrão: vicaura)")
@@ -802,6 +837,8 @@ def main():
     i.add_argument("--generator", default="wonderlust")
     i.add_argument("--date", help="data de geração AAAA-MM-DD (padrão: hoje, UTC)")
     i.add_argument("--lede", help="frase (pt-BR) que descreve o produto")
+    i.add_argument("--own-product", action="store_true",
+                   help="a biblioteca descreve o nosso próprio produto (muda o aviso do README)")
     b = sub.add_parser("build", help="regenera cabeçalhos, READMEs e manifest.json")
     b.add_argument("library")
     c = sub.add_parser("check", help="valida estrutura, frontmatter e consistência")

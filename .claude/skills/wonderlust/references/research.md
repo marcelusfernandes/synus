@@ -42,6 +42,18 @@ Alguns ambientes bloqueiam o acesso direto às páginas, mas deixam o WebSearch 
    ```
 5. **Divergências entre resumos** (preços diferentes em páginas diferentes, por exemplo) são conflitos: registre os dois valores com as duas URLs.
 
+## Modo documento interno
+
+Quando a fonte é um documento que o usuário forneceu (tese, PRD, memo), e não um site:
+
+1. **Salve o documento literalmente** num arquivo `.md` e rode `init <arquivo> --product "Nome" [--own-product]`. O `init` copia o arquivo para `<biblioteca>/fontes/` e usa o caminho relativo (`fontes/<arquivo>.md`) como `source`. Nos `sources` dos documentos, use esse mesmo caminho.
+2. **Não pesquise a web sobre a empresa**: o nome pode ser de outra empresa, e o documento é a fonte. Busque só para verificar referências externas que o documento cita (estudos, números). O que não for localizado entra em Gaps como "citado pelo documento, não verificado".
+3. **Cite por seção.** No ledger, cada fato aponta a seção do documento (§Título), não uma URL.
+4. **Glossário canônico.** Se o documento não está em inglês, fixe no ledger uma tradução única para cada termo próprio (nomes de funcionalidades, conceitos). Os documentos usam sempre essa forma e, na primeira menção, mostram o termo original entre parênteses.
+5. **Separe o que existe do que é proposta.** Documentos internos misturam o produto atual com planos. Funcionalidades propostas podem virar especificações, desde que o Purpose comece com "Proposed, not built:" e o documento tenha uma ressalva `evidence` com o título "Proposta, não construída", dizendo em que etapa do plano ela entra.
+6. **Escopo por evidência.** Gere só as categorias que o documento sustenta. As demais vão para `--skip`, e a lacuna é registrada no ledger.
+7. **Ressalva global.** Adicione ao `caveats` do manifest uma ressalva `evidence` dizendo que a biblioteca vem de uma fonte interna única, com a data e o estado dela (ex.: rascunho, nada decidido).
+
 ## O ledger de fatos
 
 Crie o ledger **fora** da biblioteca: no scratchpad, se houver, ou em `/tmp/wonderlust/<slug>/ledger.md`. Ele é material de trabalho, não entra no repositório. Formato:

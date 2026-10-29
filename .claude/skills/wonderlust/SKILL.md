@@ -44,6 +44,7 @@ A taxonomia (categorias, documentos, seções obrigatórias, faixas de tamanho) 
 - **Nova biblioteca** (o usuário manda um link): siga o fluxo completo abaixo.
 - **Atualizar** uma biblioteca existente: pesquise o que mudou, atualize o ledger, edite frontmatter e corpo dos documentos afetados, rode `build` e `check`. Para adicionar funcionalidades: `init <url> --root vicaura --slug <slug> --feature "Nome"` (o `init` nunca sobrescreve arquivos existentes).
 - **Auditar**: rode só o `check` e explique os erros e avisos em linguagem simples.
+- **Documento interno** (o usuário cola ou aponta um documento, como uma tese, um PRD ou um memo, em vez de um link, geralmente sobre o nosso próprio produto): salve o texto **literalmente** num arquivo e passe o caminho do arquivo no lugar da URL, com `--own-product` se o produto for nosso. O `init` copia o documento para `fontes/` e o usa como `source`. Gere só as categorias que o documento sustenta e deixe as outras pendentes com `--skip`. Detalhes em `references/research.md`, seção "Modo documento interno".
 
 ## Fluxo para uma nova biblioteca
 

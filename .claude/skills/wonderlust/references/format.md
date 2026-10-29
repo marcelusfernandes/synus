@@ -47,10 +47,10 @@ caveats: []                           │
 | `status` | sim | `sufficient` ou `limited`. |
 | `confidence` | sim | Número de 0.01 a 0.95 (ver `evidence-and-caveats.md`). O stub vem com 0.0 e o `check` recusa. |
 | `generated` | sim | `AAAA-MM-DD` (UTC). |
-| `source` | sim | URL principal recebida do usuário. |
+| `source` | sim | URL principal recebida do usuário ou, no modo documento interno, o caminho `fontes/<arquivo>` do documento-fonte guardado na biblioteca. |
 | `generator` | sim | `wonderlust` (ou `Vicaura` em material legado). |
 | `language` | sim | `en` (idioma do corpo). |
-| `sources` | recomendado | Lista das URLs efetivamente usadas no documento. |
+| `sources` | recomendado | Lista das URLs (ou caminhos em `fontes/`) efetivamente usados no documento. |
 | `caveats` | sim | Lista de ressalvas (`kind`, `title`, `text`, `link` opcional), ou `[]`. |
 
 Use o formato que o `build` escreve: chaves simples, strings entre aspas duplas quando tiverem `: ` ou caracteres especiais, listas com `  - `. O `build` normaliza a formatação.
@@ -67,6 +67,9 @@ O `init` cria e o `build` reescreve. Campos que **você** pode editar (o `build`
 | `categories[].label`, `.blurb`, `.note` | Rótulo, descrição curta e nota de atenção da categoria. |
 | `pending` | Categorias ainda não geradas (aparecem como placeholder). |
 | `origin_artifact` | Opcional: link do artifact de origem, citado no rodapé. |
+| `own_product` | `true` quando a biblioteca descreve o nosso próprio produto (`init --own-product`). Troca o aviso "Produto de referência" por "Produto próprio". |
+
+No modo documento interno, a biblioteca tem também a pasta `fontes/` com o documento-fonte literal. O `build` não a altera.
 
 `categories[].docs`, `categories[].path` e `docs` são recalculados a partir dos arquivos a cada `build`.
 
